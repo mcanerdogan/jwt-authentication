@@ -19,5 +19,5 @@ JWT Authentication - Node JS + React
 
 <h3>Images</h3>
 
-[![image](https://i.hizliresim.com/qexfh2d.png)](https://www.hizliresim.com/qexfh2d)
+[![image](https://i.hizliresim.com/qexfh2d.jpg)](https://www.hizliresim.com/qexfh2d)
 
