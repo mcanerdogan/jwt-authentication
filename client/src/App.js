@@ -69,6 +69,22 @@ function App() {
     }
   };
 
+  const logout = () => {
+    try {
+      axios
+        .post("http://localhost:5000/api/logout", {
+          headers: { authorization: "Bearer " + user.accessToken },
+        })
+        .then((response) => {
+          if (response.data === "You logged out successfully.") {
+            setUser(null);
+          }
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="container">
       {user ? (
@@ -83,6 +99,9 @@ function App() {
           </button>
           <button className="deleteButton" onClick={() => handleDelete(2)}>
             Delete Jane
+          </button>
+          <button className="logoutButton" onClick={() => logout()}>
+            Logout
           </button>
           {error && (
             <span className="error">
@@ -102,12 +121,13 @@ function App() {
             <input
               type="text"
               placeholder="username"
+              autoComplete="username"
               onChange={(e) => setUsername(e.target.value)}
             />
             <input
               type="password"
               placeholder="password"
-              autocomplete="new-password"
+              autoComplete="new-password"
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit" className="submitButton">
